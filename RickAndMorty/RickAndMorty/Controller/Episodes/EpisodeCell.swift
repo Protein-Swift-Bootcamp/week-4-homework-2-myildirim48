@@ -7,11 +7,17 @@
 
 import UIKit
 
-class TableViewCell: UITableViewCell {
-
+class EpisodeCell: UITableViewCell {
+    
+    @IBOutlet weak var episodeName: UILabel!
+    @IBOutlet weak var episodeSe: UILabel!
+    @IBOutlet weak var episodeImage: UIImageView!
+    @IBOutlet weak var episodeAirDate: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+    
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

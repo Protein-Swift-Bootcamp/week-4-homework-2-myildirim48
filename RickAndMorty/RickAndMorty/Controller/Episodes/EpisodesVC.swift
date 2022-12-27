@@ -14,6 +14,8 @@ class EpisodesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        episodeTableView.register(UINib.init(nibName: "EpisodeCell", bundle: nil), forCellReuseIdentifier: "episodeCell")
         episodeTableView.delegate = self
         episodeTableView.dataSource = self
         
@@ -23,8 +25,7 @@ class EpisodesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = TableViewCell()
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "episodeCell",for: indexPath) as! EpisodeCell
         return cell
     }
 
