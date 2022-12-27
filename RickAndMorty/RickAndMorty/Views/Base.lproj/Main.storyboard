@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VBr-YA-JjU">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Characters-->
+        <scene sceneID="Nat-mt-hFz">
+            <objects>
+                <viewController id="JDK-vd-N7K" customClass="CharacterVC" customModule="RickAndMorty" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="E2Y-Do-OAh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="ISY-O7-z66"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Characters" image="person" catalog="system" id="IYz-ZD-pPJ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i9X-7Z-6m4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1908" y="-378"/>
+        </scene>
+        <!--Planets-->
+        <scene sceneID="FOV-Lp-6VN">
+            <objects>
+                <viewController id="vbr-Kg-gan" customClass="PlanetsVC" customModule="RickAndMorty" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GEN-zH-Iae">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="hC5-1z-WSE"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Planets" image="rectangle.portrait.and.arrow.forward" catalog="system" id="f8N-dY-O2n"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3df-ap-zwv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2881" y="723"/>
+        </scene>
+        <!--Episodes-->
+        <scene sceneID="xGZ-vR-ec7">
+            <objects>
+                <viewController id="ryp-7c-PIg" customClass="EpisodesVC" customModule="RickAndMorty" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rCS-4d-Nuz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="a1F-OL-tQg">
+                                <rect key="frame" x="0.0" y="47" width="375" height="765"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="QvM-oT-wQ2"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="a1F-OL-tQg" firstAttribute="trailing" secondItem="QvM-oT-wQ2" secondAttribute="trailing" id="5Nx-VN-R4c"/>
+                            <constraint firstItem="a1F-OL-tQg" firstAttribute="top" secondItem="QvM-oT-wQ2" secondAttribute="top" id="6aB-95-Dup"/>
+                            <constraint firstAttribute="bottom" secondItem="a1F-OL-tQg" secondAttribute="bottom" id="Xwl-aI-vkF"/>
+                            <constraint firstItem="a1F-OL-tQg" firstAttribute="leading" secondItem="QvM-oT-wQ2" secondAttribute="leading" id="chj-xJ-qEB"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Episodes" image="tv" catalog="system" id="fYZ-Bn-ef4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lgH-ux-die" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1818.4000000000001" y="350.98522167487687"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="rOb-kZ-q1R">
+            <objects>
+                <tabBarController id="VBr-YA-JjU" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Hyi-GG-jdP">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="ryp-7c-PIg" kind="relationship" relationship="viewControllers" id="AYE-91-3tP"/>
+                        <segue destination="JDK-vd-N7K" kind="relationship" relationship="viewControllers" id="2Sx-9D-4aO"/>
+                        <segue destination="vbr-Kg-gan" kind="relationship" relationship="viewControllers" id="keL-nQ-fcw"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OFg-Sf-zjk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2880" y="-29"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="person" catalog="system" width="128" height="121"/>
+        <image name="rectangle.portrait.and.arrow.forward" catalog="system" width="128" height="109"/>
+        <image name="tv" catalog="system" width="128" height="95"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
