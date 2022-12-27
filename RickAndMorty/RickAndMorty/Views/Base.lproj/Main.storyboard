@@ -63,6 +63,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Episodes" image="tv" catalog="system" id="fYZ-Bn-ef4"/>
+                    <connections>
+                        <outlet property="episodeTableView" destination="a1F-OL-tQg" id="MwY-fq-2A9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lgH-ux-die" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

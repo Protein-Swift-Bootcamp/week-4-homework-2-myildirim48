@@ -16,6 +16,8 @@
 		745DCEAB295B730200C020E4 /* Characters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745DCEAA295B730200C020E4 /* Characters.swift */; };
 		745DCEAE295B7C2800C020E4 /* PlanetsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745DCEAD295B7C2800C020E4 /* PlanetsVC.swift */; };
 		745DCEB0295B7C3A00C020E4 /* EpisodesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745DCEAF295B7C3A00C020E4 /* EpisodesVC.swift */; };
+		745DCEB5295B7EFF00C020E4 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745DCEB3295B7EFF00C020E4 /* TableViewCell.swift */; };
+		745DCEB6295B7EFF00C020E4 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 745DCEB4295B7EFF00C020E4 /* TableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		745DCEAA295B730200C020E4 /* Characters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Characters.swift; sourceTree = "<group>"; };
 		745DCEAD295B7C2800C020E4 /* PlanetsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetsVC.swift; sourceTree = "<group>"; };
 		745DCEAF295B7C3A00C020E4 /* EpisodesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesVC.swift; sourceTree = "<group>"; };
+		745DCEB3295B7EFF00C020E4 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		745DCEB4295B7EFF00C020E4 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,8 @@
 			isa = PBXGroup;
 			children = (
 				745DCE9A295B6D2F00C020E4 /* Main.storyboard */,
+				745DCEB3295B7EFF00C020E4 /* TableViewCell.swift */,
+				745DCEB4295B7EFF00C020E4 /* TableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -159,6 +165,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				745DCEA1295B6D3000C020E4 /* LaunchScreen.storyboard in Resources */,
+				745DCEB6295B7EFF00C020E4 /* TableViewCell.xib in Resources */,
 				745DCE9E295B6D3000C020E4 /* Assets.xcassets in Resources */,
 				745DCE9C295B6D2F00C020E4 /* Main.storyboard in Resources */,
 			);
@@ -176,6 +183,7 @@
 				745DCE95295B6D2F00C020E4 /* AppDelegate.swift in Sources */,
 				745DCEAE295B7C2800C020E4 /* PlanetsVC.swift in Sources */,
 				745DCE97295B6D2F00C020E4 /* SceneDelegate.swift in Sources */,
+				745DCEB5295B7EFF00C020E4 /* TableViewCell.swift in Sources */,
 				745DCEAB295B730200C020E4 /* Characters.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
