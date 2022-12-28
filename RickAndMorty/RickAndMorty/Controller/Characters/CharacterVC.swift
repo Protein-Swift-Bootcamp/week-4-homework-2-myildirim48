@@ -24,10 +24,7 @@ class CharacterVC: UIViewController {
         
         searchBarChar.delegate = self
         
-        if searchBarChar.text == "" {
-            fetchCharData()
-        }
-
+        fetchCharData()
     }
     fileprivate func fetchCharData() {
         Service.shared.fetchCharacter(page: 1) { charData, err in
@@ -35,12 +32,13 @@ class CharacterVC: UIViewController {
                 print("Error while fetching data at CharacterVC",err)
             }
             if let charData {
+                self.characters = []
                 self.characters = charData.results
             }
         }
+        self.charTableView.reloadData()
     }
     fileprivate var isPagination = false
-    fileprivate var isDonePagination = false
     fileprivate var page = 1
     
     var timer: Timer?
@@ -51,26 +49,39 @@ extension CharacterVC: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
     
-        timer?.invalidate()
-        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { _ in
-            Service.shared.searchCharacters(searchTerm: searchText) { charData, err in
-                if let err {
-                    print("Error while searching chars",err)
-                }
+        if searchText.isEmpty {
+            
+            self.isPagination = false
+            fetchCharData()
+            
+
+        }else {
+            
+            timer?.invalidate()
+            timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: false, block: { _ in
                 
-                if let charData {
-                    self.characters = []
+                Service.shared.searchCharacters(searchTerm: searchText) { charData, err in
+                    if let err {
+                        print("Error while searching chars",err)
+                    }
                     
-                    self.isPagination = true
-                    self.characters = charData.results
-                    
-                    DispatchQueue.main.async {
-                        self.charTableView.reloadData()
+                    if let charData {
+                        self.characters = []
+                        
+                        self.isPagination = true
+                        self.characters = charData.results
+                        
+                        DispatchQueue.main.async {
+                            self.charTableView.reloadData()
+                        }
                     }
                 }
-                
-            }
-        })
+            })
+            
+        }
+        
+       
+        
     }
 }
 
@@ -122,14 +133,14 @@ extension CharacterVC: UITableViewDelegate,UITableViewDataSource {
             cell.originLabel.text = char.origin.name
         }
         
+        print("İndex: \(indexPath.item), CharCoun-1: \(characters.count - 1), \(page),\(isPagination)")
+        
         if indexPath.item == characters.count - 1  && !isPagination && page < 43{
             
+            print(indexPath.item)
             //Hiding stack view CharacterCell,Starting animation
             cell.charStackView.isHidden = true
             cell.aivChar.startAnimating()
-            
-            print("Fetching more data")
-            
      
             isPagination = true
 
@@ -139,10 +150,6 @@ extension CharacterVC: UITableViewDelegate,UITableViewDataSource {
                 Service.shared.fetchCharacter(page: page) { charData, err in
                     if let err {
                         print("Error at pagination",err)
-                    }
-                    
-                    if charData?.results.count == 0 {
-                        self.isDonePagination = true
                     }
                     
                     sleep(2)
