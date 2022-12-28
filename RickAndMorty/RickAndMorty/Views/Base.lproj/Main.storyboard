@@ -15,10 +15,25 @@
                     <view key="view" contentMode="scaleToFill" id="E2Y-Do-OAh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="UJD-Bv-gR9">
+                                <rect key="frame" x="0.0" y="47" width="375" height="682"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="ISY-O7-z66"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="UJD-Bv-gR9" firstAttribute="top" secondItem="ISY-O7-z66" secondAttribute="top" id="1nK-dW-pjG"/>
+                            <constraint firstItem="UJD-Bv-gR9" firstAttribute="leading" secondItem="ISY-O7-z66" secondAttribute="leading" id="MRz-tN-MzB"/>
+                            <constraint firstItem="ISY-O7-z66" firstAttribute="trailing" secondItem="UJD-Bv-gR9" secondAttribute="trailing" id="WSS-cB-XmM"/>
+                            <constraint firstItem="ISY-O7-z66" firstAttribute="bottom" secondItem="UJD-Bv-gR9" secondAttribute="bottom" id="eO4-YK-HaT"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Characters" image="person" catalog="system" id="IYz-ZD-pPJ"/>
+                    <connections>
+                        <outlet property="charTableView" destination="UJD-Bv-gR9" id="XLQ-H1-reP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i9X-7Z-6m4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

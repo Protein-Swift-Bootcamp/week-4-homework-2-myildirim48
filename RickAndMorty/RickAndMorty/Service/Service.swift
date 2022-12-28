@@ -14,6 +14,11 @@ class Service {
         fetchGeneric(urlString: urlString, completion: completion)
     }
     
+    func fetchCharacter(page:Int,completion: @escaping(Characters?,Error?) -> ()) {
+        let urlString = "https://rickandmortyapi.com/api/character/?page=\(page)"
+        fetchGeneric(urlString: urlString, completion: completion)
+    }
+    
     
     func fetchGeneric<T:Decodable>(urlString:String, completion: @escaping (T?,Error?) -> ()) {
         guard let url = URL(string: urlString) else { return }
@@ -31,6 +36,6 @@ class Service {
                 completion(nil,err)
                 print("Error while fetching data at Service Catch")
             }
-        }.resume()
+      }.resume()
     }
 }

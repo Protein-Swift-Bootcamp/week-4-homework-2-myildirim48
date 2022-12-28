@@ -8,14 +8,14 @@ import Foundation
 // MARK: - Welcome
 struct Characters: Codable {
     let info: CharInfo
-    let results: [Result]
+    let results: [CharResult]
 }
 // MARK: - Info
 struct CharInfo: Codable {
     let count, pages: Int
 }
 // MARK: - Result
-struct Result: Codable {
+struct CharResult: Codable {
     let id: Int
     let name: String
     let status: Status
