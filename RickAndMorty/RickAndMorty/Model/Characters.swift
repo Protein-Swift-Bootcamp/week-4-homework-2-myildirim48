@@ -19,7 +19,7 @@ struct CharResult: Codable {
     let id: Int
     let name: String
     let status: Status
-    let species: Species
+    let species: String
     let type: String
     let gender: Gender
     let origin, location: Location
@@ -37,10 +37,6 @@ enum Gender: String, Codable {
 struct Location: Codable {
     let name: String
     let url: String
-}
-enum Species: String, Codable {
-    case alien = "Alien"
-    case human = "Human"
 }
 
 enum Status: String, Codable {

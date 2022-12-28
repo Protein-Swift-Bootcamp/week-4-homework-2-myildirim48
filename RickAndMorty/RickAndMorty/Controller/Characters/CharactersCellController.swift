@@ -9,6 +9,10 @@ import UIKit
 
 class CharactersCellController: UITableViewCell {
 
+    
+    @IBOutlet weak var charStackView: UIStackView!
+    @IBOutlet weak var aivChar: UIActivityIndicatorView!
+    
     @IBOutlet weak var genderLabel: UILabel!
     @IBOutlet weak var speciesLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!

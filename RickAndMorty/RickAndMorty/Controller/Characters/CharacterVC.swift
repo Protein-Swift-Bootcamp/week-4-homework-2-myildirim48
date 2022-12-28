@@ -33,12 +33,16 @@ class CharacterVC: UIViewController {
             }
         }
     }
-    
+    fileprivate var isPagination = false
+    fileprivate var isDonePagination = false
+    fileprivate var page = 1
 }
 extension CharacterVC: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return characters.count
     }
+  
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = charTableView.dequeueReusableCell(withIdentifier: "charCellid", for: indexPath) as! CharactersCellController
@@ -46,6 +50,7 @@ extension CharacterVC: UITableViewDelegate,UITableViewDataSource {
         cell.charImageView.imageFrom(url: URL(string: char.image)!)
         
         cell.charNamelabel.text = char.name
+        
         switch char.gender.rawValue {
         case "unknown":
             cell.genderLabel.text = ""
@@ -71,7 +76,7 @@ extension CharacterVC: UITableViewDelegate,UITableViewDataSource {
         }
 
         
-        cell.speciesLabel.text = char.species.rawValue
+        cell.speciesLabel.text = char.species
         
         switch char.origin.name {
         case "unknown":
@@ -80,6 +85,44 @@ extension CharacterVC: UITableViewDelegate,UITableViewDataSource {
             cell.originLabel.text = char.origin.name
         }
         
+        if indexPath.item == characters.count - 1  && !isPagination && page < 43{
+            
+            //Hiding stack view CharacterCell,Starting animation
+            cell.charStackView.isHidden = true
+            cell.aivChar.startAnimating()
+            
+            print("Fetching more data")
+            
+     
+            isPagination = true
+
+                page += 1
+                
+                
+                Service.shared.fetchCharacter(page: page) { charData, err in
+                    if let err {
+                        print("Error at pagination",err)
+                    }
+                    
+                    if charData?.results.count == 0 {
+                        self.isDonePagination = true
+                    }
+                    
+                    sleep(2)
+                    if let charData {
+                        self.characters += charData.results
+                        
+                        DispatchQueue.main.async {
+                            cell.charStackView.isHidden = false
+                            cell.aivChar.stopAnimating()
+                            tableView.reloadData()
+                        }
+                    }
+                    
+                    self.isPagination = false
+                    
+                }
+        }
         
         return cell
     }
