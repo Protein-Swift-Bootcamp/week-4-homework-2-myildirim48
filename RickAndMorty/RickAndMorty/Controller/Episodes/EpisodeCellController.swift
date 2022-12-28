@@ -7,18 +7,19 @@
 
 import UIKit
 
-class EpisodeCell: UITableViewCell {
+class EpisodeCellController: UITableViewCell {
     
     @IBOutlet weak var episodeName: UILabel!
     @IBOutlet weak var episodeSe: UILabel!
     @IBOutlet weak var episodeAirDate: UILabel!
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var episodeCellStackView: UIStackView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        activityIndicator.stopAnimating()
         
-        
-    
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

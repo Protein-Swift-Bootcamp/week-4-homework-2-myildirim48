@@ -9,8 +9,8 @@ import Foundation
 class Service {
     static let shared = Service()
 
-    func fetchEpisodes(completion: @escaping(Episodes?,Error?) -> ()){
-        let urlString = "https://rickandmortyapi.com/api/episode"
+    func fetchEpisodes(page:Int,completion: @escaping(Episodes?,Error?) -> ()){
+        let urlString = "https://rickandmortyapi.com/api/episode?page=\(page)"
         fetchGeneric(urlString: urlString, completion: completion)
     }
     
