@@ -19,6 +19,12 @@ class Service {
         fetchGeneric(urlString: urlString, completion: completion)
     }
     
+    func searchCharacters(searchTerm:String,completion:@escaping(Characters?,Error?) -> ()) {
+        let urlString = "https://rickandmortyapi.com/api/character/?name=\(searchTerm)"
+        
+        fetchGeneric(urlString: urlString, completion: completion)
+    }
+    
     
     func fetchGeneric<T:Decodable>(urlString:String, completion: @escaping (T?,Error?) -> ()) {
         guard let url = URL(string: urlString) else { return }

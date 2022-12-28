@@ -9,6 +9,7 @@ import UIKit
 
 class CharacterVC: UIViewController {
 
+    @IBOutlet weak var searchBarChar: UISearchBar!
     @IBOutlet weak var charTableView: UITableView!
     
     var characters = [CharResult]()
@@ -21,7 +22,12 @@ class CharacterVC: UIViewController {
         charTableView.delegate = self
         charTableView.dataSource = self
         
-        fetchCharData()
+        searchBarChar.delegate = self
+        
+        if searchBarChar.text == "" {
+            fetchCharData()
+        }
+
     }
     fileprivate func fetchCharData() {
         Service.shared.fetchCharacter(page: 1) { charData, err in
@@ -36,7 +42,38 @@ class CharacterVC: UIViewController {
     fileprivate var isPagination = false
     fileprivate var isDonePagination = false
     fileprivate var page = 1
+    
+    var timer: Timer?
 }
+
+extension CharacterVC: UISearchBarDelegate {
+    
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { _ in
+            Service.shared.searchCharacters(searchTerm: searchText) { charData, err in
+                if let err {
+                    print("Error while searching chars",err)
+                }
+                
+                if let charData {
+                    self.characters = []
+                    
+                    self.isPagination = true
+                    self.characters = charData.results
+                    
+                    DispatchQueue.main.async {
+                        self.charTableView.reloadData()
+                    }
+                }
+                
+            }
+        })
+    }
+}
+
 extension CharacterVC: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return characters.count

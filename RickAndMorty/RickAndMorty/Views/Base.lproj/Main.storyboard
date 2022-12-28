@@ -19,6 +19,17 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="UJD-Bv-gR9">
                                 <rect key="frame" x="0.0" y="47" width="375" height="682"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search Term..." id="Cmy-iz-sj0">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <scopeButtonTitles>
+                                        <string>Hello</string>
+                                    </scopeButtonTitles>
+                                    <connections>
+                                        <outlet property="delegate" destination="JDK-vd-N7K" id="f2B-LV-0dg"/>
+                                    </connections>
+                                </searchBar>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ISY-O7-z66"/>
@@ -28,11 +39,13 @@
                             <constraint firstItem="UJD-Bv-gR9" firstAttribute="leading" secondItem="ISY-O7-z66" secondAttribute="leading" id="MRz-tN-MzB"/>
                             <constraint firstItem="ISY-O7-z66" firstAttribute="trailing" secondItem="UJD-Bv-gR9" secondAttribute="trailing" id="WSS-cB-XmM"/>
                             <constraint firstItem="ISY-O7-z66" firstAttribute="bottom" secondItem="UJD-Bv-gR9" secondAttribute="bottom" id="eO4-YK-HaT"/>
+                            <constraint firstItem="UJD-Bv-gR9" firstAttribute="bottom" secondItem="ISY-O7-z66" secondAttribute="bottom" id="oSa-FZ-t8a"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Characters" image="person" catalog="system" id="IYz-ZD-pPJ"/>
                     <connections>
                         <outlet property="charTableView" destination="UJD-Bv-gR9" id="XLQ-H1-reP"/>
+                        <outlet property="searchBarChar" destination="Cmy-iz-sj0" id="P3Q-C1-fJk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i9X-7Z-6m4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -53,7 +66,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3df-ap-zwv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2881" y="723"/>
+            <point key="canvasLocation" x="-2631" y="1012"/>
         </scene>
         <!--Episodes-->
         <scene sceneID="xGZ-vR-ec7">
@@ -103,7 +116,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OFg-Sf-zjk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2880" y="-29"/>
+            <point key="canvasLocation" x="-3778" y="-129"/>
         </scene>
     </scenes>
     <resources>

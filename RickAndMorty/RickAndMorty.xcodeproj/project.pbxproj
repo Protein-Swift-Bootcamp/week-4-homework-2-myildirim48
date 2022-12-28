@@ -20,6 +20,7 @@
 		745DCEB0295B7C3A00C020E4 /* EpisodesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745DCEAF295B7C3A00C020E4 /* EpisodesVC.swift */; };
 		745DCEB5295B7EFF00C020E4 /* EpisodeCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745DCEB3295B7EFF00C020E4 /* EpisodeCellController.swift */; };
 		745DCEB6295B7EFF00C020E4 /* EpisodeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 745DCEB4295B7EFF00C020E4 /* EpisodeCell.xib */; };
+		74B54C2C295CED7000928B56 /* Planets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B54C2B295CED7000928B56 /* Planets.swift */; };
 		74FF0565295C3B170011378E /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FF0564295C3B170011378E /* UIImageExtension.swift */; };
 		74FF0572295C63CC0011378E /* CharacterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74FF0571295C63CC0011378E /* CharacterCell.xib */; };
 		74FF0574295C6F630011378E /* CharactersCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FF0573295C6F630011378E /* CharactersCellController.swift */; };
@@ -41,6 +42,7 @@
 		745DCEAF295B7C3A00C020E4 /* EpisodesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesVC.swift; sourceTree = "<group>"; };
 		745DCEB3295B7EFF00C020E4 /* EpisodeCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeCellController.swift; sourceTree = "<group>"; };
 		745DCEB4295B7EFF00C020E4 /* EpisodeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EpisodeCell.xib; sourceTree = "<group>"; };
+		74B54C2B295CED7000928B56 /* Planets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planets.swift; sourceTree = "<group>"; };
 		74FF0564295C3B170011378E /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		74FF0571295C63CC0011378E /* CharacterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterCell.xib; sourceTree = "<group>"; };
 		74FF0573295C6F630011378E /* CharactersCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersCellController.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 			children = (
 				745DCEAA295B730200C020E4 /* Characters.swift */,
 				740160CF295C32AD00F9D590 /* Episodes.swift */,
+				74B54C2B295CED7000928B56 /* Planets.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -237,6 +240,7 @@
 				745DCE97295B6D2F00C020E4 /* SceneDelegate.swift in Sources */,
 				745DCEB5295B7EFF00C020E4 /* EpisodeCellController.swift in Sources */,
 				745DCEAB295B730200C020E4 /* Characters.swift in Sources */,
+				74B54C2C295CED7000928B56 /* Planets.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
