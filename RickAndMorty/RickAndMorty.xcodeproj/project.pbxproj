@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		740160CE295C2EB500F9D590 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740160CD295C2EB500F9D590 /* Service.swift */; };
+		740160D0295C32AD00F9D590 /* Episodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740160CF295C32AD00F9D590 /* Episodes.swift */; };
 		745DCE95295B6D2F00C020E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745DCE94295B6D2F00C020E4 /* AppDelegate.swift */; };
 		745DCE97295B6D2F00C020E4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745DCE96295B6D2F00C020E4 /* SceneDelegate.swift */; };
 		745DCE99295B6D2F00C020E4 /* CharacterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745DCE98295B6D2F00C020E4 /* CharacterVC.swift */; };
@@ -18,9 +20,12 @@
 		745DCEB0295B7C3A00C020E4 /* EpisodesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745DCEAF295B7C3A00C020E4 /* EpisodesVC.swift */; };
 		745DCEB5295B7EFF00C020E4 /* EpisodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745DCEB3295B7EFF00C020E4 /* EpisodeCell.swift */; };
 		745DCEB6295B7EFF00C020E4 /* EpisodeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 745DCEB4295B7EFF00C020E4 /* EpisodeCell.xib */; };
+		74FF0565295C3B170011378E /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FF0564295C3B170011378E /* UIImageExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		740160CD295C2EB500F9D590 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		740160CF295C32AD00F9D590 /* Episodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episodes.swift; sourceTree = "<group>"; };
 		745DCE91295B6D2F00C020E4 /* RickAndMorty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickAndMorty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		745DCE94295B6D2F00C020E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		745DCE96295B6D2F00C020E4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -34,6 +39,7 @@
 		745DCEAF295B7C3A00C020E4 /* EpisodesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesVC.swift; sourceTree = "<group>"; };
 		745DCEB3295B7EFF00C020E4 /* EpisodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeCell.swift; sourceTree = "<group>"; };
 		745DCEB4295B7EFF00C020E4 /* EpisodeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EpisodeCell.xib; sourceTree = "<group>"; };
+		74FF0564295C3B170011378E /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +53,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		740160CC295B89EC00F9D590 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				740160CD295C2EB500F9D590 /* Service.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		745DCE88295B6D2F00C020E4 = {
 			isa = PBXGroup;
 			children = (
@@ -66,6 +80,8 @@
 		745DCE93295B6D2F00C020E4 /* RickAndMorty */ = {
 			isa = PBXGroup;
 			children = (
+				74FF0563295C3B090011378E /* Helpers */,
+				740160CC295B89EC00F9D590 /* Service */,
 				745DCEA8295B72E700C020E4 /* Model */,
 				745DCEA9295B72EC00C020E4 /* Views */,
 				745DCEAC295B745600C020E4 /* Controller */,
@@ -82,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				745DCEAA295B730200C020E4 /* Characters.swift */,
+				740160CF295C32AD00F9D590 /* Episodes.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -112,6 +129,14 @@
 				745DCEAF295B7C3A00C020E4 /* EpisodesVC.swift */,
 			);
 			path = Episodes;
+			sourceTree = "<group>";
+		};
+		74FF0563295C3B090011378E /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				74FF0564295C3B170011378E /* UIImageExtension.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,7 +212,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				745DCEB0295B7C3A00C020E4 /* EpisodesVC.swift in Sources */,
+				740160CE295C2EB500F9D590 /* Service.swift in Sources */,
 				745DCE99295B6D2F00C020E4 /* CharacterVC.swift in Sources */,
+				74FF0565295C3B170011378E /* UIImageExtension.swift in Sources */,
+				740160D0295C32AD00F9D590 /* Episodes.swift in Sources */,
 				745DCE95295B6D2F00C020E4 /* AppDelegate.swift in Sources */,
 				745DCEAE295B7C2800C020E4 /* PlanetsVC.swift in Sources */,
 				745DCE97295B6D2F00C020E4 /* SceneDelegate.swift in Sources */,

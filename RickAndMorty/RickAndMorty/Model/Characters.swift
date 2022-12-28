@@ -6,16 +6,14 @@
 import Foundation
 
 // MARK: - Welcome
-struct Welcome: Codable {
-    let info: Info
+struct Characters: Codable {
+    let info: CharInfo
     let results: [Result]
 }
-
 // MARK: - Info
-struct Info: Codable {
+struct CharInfo: Codable {
     let count, pages: Int
 }
-
 // MARK: - Result
 struct Result: Codable {
     let id: Int
@@ -30,19 +28,16 @@ struct Result: Codable {
     let url: String
     let created: String
 }
-
 enum Gender: String, Codable {
     case female = "Female"
     case male = "Male"
     case unknown = "unknown"
 }
-
 // MARK: - Location
 struct Location: Codable {
     let name: String
     let url: String
 }
-
 enum Species: String, Codable {
     case alien = "Alien"
     case human = "Human"
