@@ -21,6 +21,7 @@
 		745DCEB5295B7EFF00C020E4 /* EpisodeCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745DCEB3295B7EFF00C020E4 /* EpisodeCellController.swift */; };
 		745DCEB6295B7EFF00C020E4 /* EpisodeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 745DCEB4295B7EFF00C020E4 /* EpisodeCell.xib */; };
 		74FF0565295C3B170011378E /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FF0564295C3B170011378E /* UIImageExtension.swift */; };
+		74FF0572295C63CC0011378E /* CharacterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74FF0571295C63CC0011378E /* CharacterCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		745DCEB3295B7EFF00C020E4 /* EpisodeCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeCellController.swift; sourceTree = "<group>"; };
 		745DCEB4295B7EFF00C020E4 /* EpisodeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EpisodeCell.xib; sourceTree = "<group>"; };
 		74FF0564295C3B170011378E /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		74FF0571295C63CC0011378E /* CharacterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 			children = (
 				745DCE9A295B6D2F00C020E4 /* Main.storyboard */,
 				745DCEB4295B7EFF00C020E4 /* EpisodeCell.xib */,
+				74FF0571295C63CC0011378E /* CharacterCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -115,7 +118,7 @@
 		745DCEAC295B745600C020E4 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				745DCE98295B6D2F00C020E4 /* CharacterVC.swift */,
+				74FF0570295C63AA0011378E /* Characters */,
 				745DCEAD295B7C2800C020E4 /* PlanetsVC.swift */,
 				745DCEB7295B851E00C020E4 /* Episodes */,
 			);
@@ -137,6 +140,14 @@
 				74FF0564295C3B170011378E /* UIImageExtension.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		74FF0570295C63AA0011378E /* Characters */ = {
+			isa = PBXGroup;
+			children = (
+				745DCE98295B6D2F00C020E4 /* CharacterVC.swift */,
+			);
+			path = Characters;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,6 +210,7 @@
 			files = (
 				745DCEA1295B6D3000C020E4 /* LaunchScreen.storyboard in Resources */,
 				745DCEB6295B7EFF00C020E4 /* EpisodeCell.xib in Resources */,
+				74FF0572295C63CC0011378E /* CharacterCell.xib in Resources */,
 				745DCE9E295B6D3000C020E4 /* Assets.xcassets in Resources */,
 				745DCE9C295B6D2F00C020E4 /* Main.storyboard in Resources */,
 			);

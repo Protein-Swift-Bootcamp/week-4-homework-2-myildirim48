@@ -51,7 +51,9 @@ class EpisodesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "episodeCell",for: indexPath) as! EpisodeCellController
+        
         let episode = episodes[indexPath.item]
+        
         cell.episodeName.text = episode.name
         cell.episodeAirDate.text = episode.airDate
         cell.episodeSe.text = episode.episode
@@ -92,11 +94,7 @@ class EpisodesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                     self.isPagination = false
                     
                 }
-            
-            
-           
         }
-        
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
