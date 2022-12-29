@@ -8,7 +8,7 @@
 import Foundation
 class Service {
     static let shared = Service()
-
+//MARK: - Data fetching funcs
     func fetchEpisodes(page:Int,completion: @escaping(Episodes?,Error?) -> ()){
         let urlString = "https://rickandmortyapi.com/api/episode?page=\(page)"
         fetchGeneric(urlString: urlString, completion: completion)
@@ -19,6 +19,8 @@ class Service {
         fetchGeneric(urlString: urlString, completion: completion)
     }
     
+    
+    //MARK: - Search funcs
     func searchCharacters(searchTerm:String,completion:@escaping(Characters?,Error?) -> ()) {
         let urlString = "https://rickandmortyapi.com/api/character/?name=\(searchTerm)"
         
@@ -26,6 +28,21 @@ class Service {
     }
     
     
+    func searchEpisodes(searchTerm:String,completion:@escaping(Episodes?,Error?) -> ()){
+        
+        let urlString = "https://rickandmortyapi.com/api/episode/?name=\(searchTerm)"
+        
+        fetchGeneric(urlString: urlString, completion: completion)
+    }
+    
+//    func searchLocation(searchTerm:String,completion:@escaping(Planets?,Error?) -> ()){
+//        let urlString = "https://rickandmortyapi.com/api/location/?name=\(searchTerm)"
+//        
+//        fetchGeneric(urlString: urlString, completion: completion)
+//    }
+    
+
+    //Declare json by generic
     func fetchGeneric<T:Decodable>(urlString:String, completion: @escaping (T?,Error?) -> ()) {
         guard let url = URL(string: urlString) else { return }
         

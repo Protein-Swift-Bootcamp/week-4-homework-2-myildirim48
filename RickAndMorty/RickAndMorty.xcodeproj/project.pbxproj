@@ -21,6 +21,7 @@
 		745DCEB5295B7EFF00C020E4 /* EpisodeCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745DCEB3295B7EFF00C020E4 /* EpisodeCellController.swift */; };
 		745DCEB6295B7EFF00C020E4 /* EpisodeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 745DCEB4295B7EFF00C020E4 /* EpisodeCell.xib */; };
 		74B54C2C295CED7000928B56 /* Planets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B54C2B295CED7000928B56 /* Planets.swift */; };
+		74D5112E295E109C0033CA9A /* EndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D5112D295E109C0033CA9A /* EndPoints.swift */; };
 		74FF0565295C3B170011378E /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FF0564295C3B170011378E /* UIImageExtension.swift */; };
 		74FF0572295C63CC0011378E /* CharacterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74FF0571295C63CC0011378E /* CharacterCell.xib */; };
 		74FF0574295C6F630011378E /* CharactersCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FF0573295C6F630011378E /* CharactersCellController.swift */; };
@@ -43,6 +44,7 @@
 		745DCEB3295B7EFF00C020E4 /* EpisodeCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeCellController.swift; sourceTree = "<group>"; };
 		745DCEB4295B7EFF00C020E4 /* EpisodeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EpisodeCell.xib; sourceTree = "<group>"; };
 		74B54C2B295CED7000928B56 /* Planets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planets.swift; sourceTree = "<group>"; };
+		74D5112D295E109C0033CA9A /* EndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoints.swift; sourceTree = "<group>"; };
 		74FF0564295C3B170011378E /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		74FF0571295C63CC0011378E /* CharacterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterCell.xib; sourceTree = "<group>"; };
 		74FF0573295C6F630011378E /* CharactersCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersCellController.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				740160CD295C2EB500F9D590 /* Service.swift */,
+				74D5112D295E109C0033CA9A /* EndPoints.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 				740160CE295C2EB500F9D590 /* Service.swift in Sources */,
 				74FF0574295C6F630011378E /* CharactersCellController.swift in Sources */,
 				745DCE99295B6D2F00C020E4 /* CharacterVC.swift in Sources */,
+				74D5112E295E109C0033CA9A /* EndPoints.swift in Sources */,
 				74FF0565295C3B170011378E /* UIImageExtension.swift in Sources */,
 				740160D0295C32AD00F9D590 /* Episodes.swift in Sources */,
 				745DCE95295B6D2F00C020E4 /* AppDelegate.swift in Sources */,

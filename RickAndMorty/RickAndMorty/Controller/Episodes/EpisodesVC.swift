@@ -7,8 +7,9 @@
 
 import UIKit
 
-class EpisodesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class EpisodesVC: UIViewController{
     
+    @IBOutlet weak var searchBarEpisode: UISearchBar!
     @IBOutlet weak var episodeTableView: UITableView!
     
     
@@ -36,17 +37,50 @@ class EpisodesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 self.episodes = episodesData.results
                 
             }
-            
-            
         }
-    }
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return episodes.count
+        self.episodeTableView.reloadData()
     }
     
     fileprivate var isPagination = false
     fileprivate var isDonePagination = false
     fileprivate var page = 1
+    
+    var timer: Timer?
+
+}
+extension EpisodesVC: UITableViewDelegate, UITableViewDataSource,UISearchBarDelegate  {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+            self.isPagination = false
+            fetchEpisodeData()
+        }else {
+            timer?.invalidate()
+            timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: false, block: { _ in
+                Service.shared.searchEpisodes(searchTerm: searchText) { episoData, err in
+                    if let err {
+                        print("Error while searching episodes",err)
+                    }
+                    
+                    if let episoData {
+                        self.episodes = []
+                        
+                        self.isPagination = true
+                        self.episodes = episoData.results
+                        
+                        DispatchQueue.main.async {
+                            self.episodeTableView.reloadData()
+                        }
+                    }
+                }
+            })
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return episodes.count
+    }
+
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         

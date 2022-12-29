@@ -25,6 +25,8 @@ class CharacterVC: UIViewController {
         searchBarChar.delegate = self
         
         fetchCharData()
+        
+        
     }
     fileprivate func fetchCharData() {
         Service.shared.fetchCharacter(page: 1) { charData, err in
@@ -44,7 +46,7 @@ class CharacterVC: UIViewController {
     var timer: Timer?
 }
 
-extension CharacterVC: UISearchBarDelegate {
+extension CharacterVC: UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate {
     
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -63,6 +65,7 @@ extension CharacterVC: UISearchBarDelegate {
                 Service.shared.searchCharacters(searchTerm: searchText) { charData, err in
                     if let err {
                         print("Error while searching chars",err)
+                        return
                     }
                     
                     if let charData {
@@ -83,9 +86,8 @@ extension CharacterVC: UISearchBarDelegate {
        
         
     }
-}
 
-extension CharacterVC: UITableViewDelegate,UITableViewDataSource {
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return characters.count
     }
