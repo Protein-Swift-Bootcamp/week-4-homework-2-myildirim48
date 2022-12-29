@@ -46,7 +46,7 @@ class EpisodesVC: UIViewController{
     fileprivate var page = 1
     
     var timer: Timer?
-
+    
 }
 extension EpisodesVC: UITableViewDelegate, UITableViewDataSource,UISearchBarDelegate  {
     
@@ -55,32 +55,55 @@ extension EpisodesVC: UITableViewDelegate, UITableViewDataSource,UISearchBarDele
             self.isPagination = false
             fetchEpisodeData()
         }else {
-            timer?.invalidate()
-            timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: false, block: { _ in
-                Service.shared.searchEpisodes(searchTerm: searchText) { episoData, err in
-                    if let err {
-                        print("Error while searching episodes",err)
-                    }
+                timer?.invalidate()
+                timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: false, block: { _ in
                     
-                    if let episoData {
-                        self.episodes = []
-                        
-                        self.isPagination = true
-                        self.episodes = episoData.results
-                        
-                        DispatchQueue.main.async {
-                            self.episodeTableView.reloadData()
+                    if searchText.isNumber{
+                        if Int(searchText)! < 12{
+                                Service.shared.searchEpisodesNum(searchTerm: searchText) { episoData, err in
+                            if let err {
+                                print("Error while searching episodes",err)
+                            }
+                            
+                            if let episoData {
+                                self.episodes = []
+                                
+                                self.isPagination = true
+                                self.episodes = episoData.results
+                                
+                                DispatchQueue.main.async {
+                                    self.episodeTableView.reloadData()
+                                }
+                            }
                         }
                     }
-                }
-            })
-        }
+                    }else {
+                        Service.shared.searchEpisodes(searchTerm: searchText) { episoData, err in
+                            if let err {
+                                print("Error while searching episodes",err)
+                            }
+                            
+                            if let episoData {
+                                self.episodes = []
+                                
+                                self.isPagination = true
+                                self.episodes = episoData.results
+                                
+                                DispatchQueue.main.async {
+                                    self.episodeTableView.reloadData()
+                                }
+                            }
+                        }
+                    }
+                })
+            }
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return episodes.count
     }
-
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -91,7 +114,7 @@ extension EpisodesVC: UITableViewDelegate, UITableViewDataSource,UISearchBarDele
         cell.episodeName.text = episode.name
         cell.episodeAirDate.text = episode.airDate
         cell.episodeSe.text = episode.episode
-
+        
         
         if indexPath.item == episodes.count - 1  && !isPagination && page < 3{
             cell.episodeCellStackView.isHidden = true
@@ -99,35 +122,35 @@ extension EpisodesVC: UITableViewDelegate, UITableViewDataSource,UISearchBarDele
             cell.activityIndicator.startAnimating()
             print("Fetching more data")
             
-     
+            
             isPagination = true
-
-                page += 1
-                
-                
-                Service.shared.fetchEpisodes(page: page) { episodeDat, err in
-                    if let err {
-                        print("Error at pagination",err)
-                    }
-                    
-                    if episodeDat?.results.count == 0 {
-                        self.isDonePagination = true
-                    }
-                    
-                    sleep(2)
-                    if let episodeDat {
-                        self.episodes += episodeDat.results
-                        
-                        DispatchQueue.main.async {
-                            cell.episodeCellStackView.isHidden = false
-                            cell.activityIndicator.stopAnimating()
-                            tableView.reloadData()
-                        }
-                    }
-                    
-                    self.isPagination = false
-                    
+            
+            page += 1
+            
+            
+            Service.shared.fetchEpisodes(page: page) { episodeDat, err in
+                if let err {
+                    print("Error at pagination",err)
                 }
+                
+                if episodeDat?.results.count == 0 {
+                    self.isDonePagination = true
+                }
+                
+                sleep(2)
+                if let episodeDat {
+                    self.episodes += episodeDat.results
+                    
+                    DispatchQueue.main.async {
+                        cell.episodeCellStackView.isHidden = false
+                        cell.activityIndicator.stopAnimating()
+                        tableView.reloadData()
+                    }
+                }
+                
+                self.isPagination = false
+                
+            }
         }
         return cell
     }

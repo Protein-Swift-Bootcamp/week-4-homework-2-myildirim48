@@ -28,6 +28,7 @@ class CharacterVC: UIViewController {
         
         
     }
+    
     fileprivate func fetchCharData() {
         Service.shared.fetchCharacter(page: 1) { charData, err in
             if let err {
@@ -40,6 +41,7 @@ class CharacterVC: UIViewController {
         }
         self.charTableView.reloadData()
     }
+    
     fileprivate var isPagination = false
     fileprivate var page = 1
     
@@ -50,50 +52,42 @@ extension CharacterVC: UITableViewDelegate,UITableViewDataSource,UISearchBarDele
     
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-    
+
+      
+        
         if searchText.isEmpty {
             
             self.isPagination = false
             fetchCharData()
             
 
-        }else {
+        }else{
             
             timer?.invalidate()
-            timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: false, block: { _ in
-                
-                Service.shared.searchCharacters(searchTerm: searchText) { charData, err in
-                    if let err {
-                        print("Error while searching chars",err)
-                        return
-                    }
-                    
-                    if let charData {
-                        self.characters = []
+            timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { _ in
+                    Service.shared.searchCharacters(searchTerm: searchText) { charData, err in
+                        if let err {
+                            print("Error while searching chars",err)
+                            return
+                        }
                         
-                        self.isPagination = true
-                        self.characters = charData.results
-                        
-                        DispatchQueue.main.async {
-                            self.charTableView.reloadData()
+                        if let charData {
+                            self.characters = []
+                            
+                            self.isPagination = true
+                            self.characters = charData.results
+                            
+                            DispatchQueue.main.async {
+                                self.charTableView.reloadData()
+                            }
                         }
                     }
-                }
             })
-            
         }
-        
-       
-        
     }
-
-
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return characters.count
     }
-  
-    
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = charTableView.dequeueReusableCell(withIdentifier: "charCellid", for: indexPath) as! CharactersCellController
         let char = characters[indexPath.item]
@@ -134,8 +128,6 @@ extension CharacterVC: UITableViewDelegate,UITableViewDataSource,UISearchBarDele
         default:
             cell.originLabel.text = char.origin.name
         }
-        
-        print("İndex: \(indexPath.item), CharCoun-1: \(characters.count - 1), \(page),\(isPagination)")
         
         if indexPath.item == characters.count - 1  && !isPagination && page < 43{
             

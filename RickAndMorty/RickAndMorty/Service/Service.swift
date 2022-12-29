@@ -28,9 +28,16 @@ class Service {
     }
     
     
+    
     func searchEpisodes(searchTerm:String,completion:@escaping(Episodes?,Error?) -> ()){
         
         let urlString = "https://rickandmortyapi.com/api/episode/?name=\(searchTerm)"
+        
+        fetchGeneric(urlString: urlString, completion: completion)
+    }
+    func searchEpisodesNum(searchTerm:String,completion:@escaping(Episodes?,Error?) -> ()){
+        
+        let urlString = "https://rickandmortyapi.com/api/episode/?episode=\(searchTerm)"
         
         fetchGeneric(urlString: urlString, completion: completion)
     }
