@@ -9,6 +9,7 @@ import UIKit
 
 class CharacterVC: UIViewController {
 
+    @IBOutlet weak var charAiv: UIActivityIndicatorView!
     @IBOutlet weak var searchBarChar: UISearchBar!
     @IBOutlet weak var charTableView: UITableView!
     
@@ -16,6 +17,8 @@ class CharacterVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        charAiv.startAnimating()
         
         charTableView.register(UINib.init(nibName: "CharacterCell", bundle: nil), forCellReuseIdentifier: "charCellid")
         
@@ -40,6 +43,7 @@ class CharacterVC: UIViewController {
             }
         }
         self.charTableView.reloadData()
+        charAiv.stopAnimating()
     }
     
     fileprivate var isPagination = false
@@ -63,6 +67,10 @@ extension CharacterVC: UITableViewDelegate,UITableViewDataSource,UISearchBarDele
 
         }else{
             
+            characters = []
+            charTableView.reloadData()
+            charAiv.startAnimating()
+
             timer?.invalidate()
             timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { _ in
                     Service.shared.searchCharacters(searchTerm: searchText) { charData, err in
@@ -79,6 +87,7 @@ extension CharacterVC: UITableViewDelegate,UITableViewDataSource,UISearchBarDele
                             
                             DispatchQueue.main.async {
                                 self.charTableView.reloadData()
+                                self.charAiv.stopAnimating()
                             }
                         }
                     }

@@ -9,6 +9,7 @@ import UIKit
 
 class EpisodesVC: UIViewController{
     
+    @IBOutlet weak var episodeAiv: UIActivityIndicatorView!
     @IBOutlet weak var searchBarEpisode: UISearchBar!
     @IBOutlet weak var episodeTableView: UITableView!
     
@@ -45,7 +46,7 @@ class EpisodesVC: UIViewController{
     fileprivate var isDonePagination = false
     fileprivate var page = 1
     
-    var timer: Timer?
+    fileprivate var timer: Timer?
     
 }
 extension EpisodesVC: UITableViewDelegate, UITableViewDataSource,UISearchBarDelegate  {
@@ -55,6 +56,11 @@ extension EpisodesVC: UITableViewDelegate, UITableViewDataSource,UISearchBarDele
             self.isPagination = false
             fetchEpisodeData()
         }else {
+            self.episodes = []
+            self.episodeTableView.reloadData()
+            episodeAiv.startAnimating()
+            
+            
                 timer?.invalidate()
                 timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: false, block: { _ in
                     
@@ -71,8 +77,9 @@ extension EpisodesVC: UITableViewDelegate, UITableViewDataSource,UISearchBarDele
                                 self.isPagination = true
                                 self.episodes = episoData.results
                                 
-                                DispatchQueue.main.async {
+                                DispatchQueue.main.async { [self] in
                                     self.episodeTableView.reloadData()
+                                    self.episodeAiv.stopAnimating()
                                 }
                             }
                         }
@@ -91,6 +98,7 @@ extension EpisodesVC: UITableViewDelegate, UITableViewDataSource,UISearchBarDele
                                 
                                 DispatchQueue.main.async {
                                     self.episodeTableView.reloadData()
+                                    self.episodeAiv.stopAnimating()
                                 }
                             }
                         }

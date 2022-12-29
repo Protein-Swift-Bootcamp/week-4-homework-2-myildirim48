@@ -128,8 +128,8 @@
 		745DCEAC295B745600C020E4 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				74A802D6295E239900CA613A /* Planets */,
 				74FF0570295C63AA0011378E /* Characters */,
-				745DCEAD295B7C2800C020E4 /* PlanetsVC.swift */,
 				745DCEB7295B851E00C020E4 /* Episodes */,
 			);
 			path = Controller;
@@ -142,6 +142,14 @@
 				745DCEAF295B7C3A00C020E4 /* EpisodesVC.swift */,
 			);
 			path = Episodes;
+			sourceTree = "<group>";
+		};
+		74A802D6295E239900CA613A /* Planets */ = {
+			isa = PBXGroup;
+			children = (
+				745DCEAD295B7C2800C020E4 /* PlanetsVC.swift */,
+			);
+			path = Planets;
 			sourceTree = "<group>";
 		};
 		74FF0563295C3B090011378E /* Helpers */ = {

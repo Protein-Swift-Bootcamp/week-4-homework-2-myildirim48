@@ -23,14 +23,16 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <textInputTraits key="textInputTraits"/>
-                                    <scopeButtonTitles>
-                                        <string>Hello</string>
-                                    </scopeButtonTitles>
                                     <connections>
                                         <outlet property="delegate" destination="JDK-vd-N7K" id="f2B-LV-0dg"/>
                                     </connections>
                                 </searchBar>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="DO5-ly-jVe">
+                                <rect key="frame" x="177" y="396" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" systemColor="opaqueSeparatorColor"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ISY-O7-z66"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -44,6 +46,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Characters" image="person" catalog="system" id="IYz-ZD-pPJ"/>
                     <connections>
+                        <outlet property="charAiv" destination="DO5-ly-jVe" id="L9A-d9-lhb"/>
                         <outlet property="charTableView" destination="UJD-Bv-gR9" id="XLQ-H1-reP"/>
                         <outlet property="searchBarChar" destination="Cmy-iz-sj0" id="P3Q-C1-fJk"/>
                     </connections>
@@ -59,10 +62,31 @@
                     <view key="view" contentMode="scaleToFill" id="GEN-zH-Iae">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="nWL-BG-dHp">
+                                <rect key="frame" x="0.0" y="47" width="375" height="682"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" id="7Wa-oE-Oyd">
+                                <rect key="frame" x="0.0" y="384" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" systemColor="opaqueSeparatorColor"/>
+                            </activityIndicatorView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="hC5-1z-WSE"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="nWL-BG-dHp" firstAttribute="leading" secondItem="hC5-1z-WSE" secondAttribute="leading" id="66B-Xe-nig"/>
+                            <constraint firstItem="nWL-BG-dHp" firstAttribute="top" secondItem="hC5-1z-WSE" secondAttribute="top" id="YbE-gB-5M5"/>
+                            <constraint firstItem="hC5-1z-WSE" firstAttribute="trailing" secondItem="nWL-BG-dHp" secondAttribute="trailing" id="bXH-ug-8db"/>
+                            <constraint firstItem="hC5-1z-WSE" firstAttribute="bottom" secondItem="nWL-BG-dHp" secondAttribute="bottom" id="dip-o0-z9I"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Planets" image="rectangle.portrait.and.arrow.forward" catalog="system" id="f8N-dY-O2n"/>
+                    <connections>
+                        <outlet property="planetAiv" destination="7Wa-oE-Oyd" id="vVr-wE-17M"/>
+                        <outlet property="tableviewPlanet" destination="nWL-BG-dHp" id="JAP-u5-sa2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3df-ap-zwv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -79,7 +103,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="a1F-OL-tQg">
                                 <rect key="frame" x="0.0" y="47" width="375" height="765"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search Episodes By Name" id="uR7-NL-Gq4">
+                                <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search By Name,Numbers" id="uR7-NL-Gq4">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <textInputTraits key="textInputTraits"/>
@@ -88,6 +112,11 @@
                                     </connections>
                                 </searchBar>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="gj7-Td-eYf">
+                                <rect key="frame" x="177" y="396" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" systemColor="opaqueSeparatorColor"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="QvM-oT-wQ2"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -100,6 +129,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Episodes" image="tv" catalog="system" id="fYZ-Bn-ef4"/>
                     <connections>
+                        <outlet property="episodeAiv" destination="gj7-Td-eYf" id="uWj-P9-QTj"/>
                         <outlet property="episodeTableView" destination="a1F-OL-tQg" id="MwY-fq-2A9"/>
                         <outlet property="searchBarEpisode" destination="uR7-NL-Gq4" id="Kd0-4Q-ZqD"/>
                     </connections>
@@ -132,6 +162,9 @@
         <image name="person" catalog="system" width="128" height="121"/>
         <image name="rectangle.portrait.and.arrow.forward" catalog="system" width="128" height="109"/>
         <image name="tv" catalog="system" width="128" height="95"/>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

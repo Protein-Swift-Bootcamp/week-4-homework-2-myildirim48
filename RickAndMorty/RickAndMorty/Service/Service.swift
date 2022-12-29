@@ -19,6 +19,11 @@ class Service {
         fetchGeneric(urlString: urlString, completion: completion)
     }
     
+    func fetchPlanet(page:Int,completion: @escaping(Planets?,Error?) -> ()) {
+        let urlString = "https://rickandmortyapi.com/api/location/?page=\(page)"
+        fetchGeneric(urlString: urlString, completion: completion)
+    }
+    
     
     //MARK: - Search funcs
     func searchCharacters(searchTerm:String,completion:@escaping(Characters?,Error?) -> ()) {
