@@ -9,6 +9,8 @@ import UIKit
 
 class EpisodesVC: UIViewController{
     
+    
+    @IBOutlet weak var warningText: UILabel!
     @IBOutlet weak var episodeAiv: UIActivityIndicatorView!
     @IBOutlet weak var searchBarEpisode: UISearchBar!
     @IBOutlet weak var episodeTableView: UITableView!
@@ -25,6 +27,7 @@ class EpisodesVC: UIViewController{
         episodeTableView.delegate = self
         episodeTableView.dataSource = self
         
+        
         fetchEpisodeData()//Fetching data
     }
     
@@ -35,11 +38,14 @@ class EpisodesVC: UIViewController{
                 return
             }
             if let episodesData {
+                self.episodes = []
                 self.episodes = episodesData.results
                 
             }
         }
-        self.episodeTableView.reloadData()
+        DispatchQueue.main.async {
+            self.episodeTableView.reloadData()
+        }
     }
     
     fileprivate var isPagination = false
@@ -54,8 +60,10 @@ extension EpisodesVC: UITableViewDelegate, UITableViewDataSource,UISearchBarDele
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.isEmpty {
             self.isPagination = false
+            warningText.text = ""
             fetchEpisodeData()
         }else {
+            
             self.episodes = []
             self.episodeTableView.reloadData()
             episodeAiv.startAnimating()
@@ -83,7 +91,13 @@ extension EpisodesVC: UITableViewDelegate, UITableViewDataSource,UISearchBarDele
                                 }
                             }
                         }
-                    }
+                        }else {
+                            DispatchQueue.main.async {
+                                self.episodeAiv.stopAnimating()
+                                self.warningText.text = "En fazla 11. Bölüm var..."
+                                self.warningText.isHidden = false
+                            }
+                        }
                     }else {
                         Service.shared.searchEpisodes(searchTerm: searchText) { episoData, err in
                             if let err {
@@ -100,6 +114,14 @@ extension EpisodesVC: UITableViewDelegate, UITableViewDataSource,UISearchBarDele
                                     self.episodeTableView.reloadData()
                                     self.episodeAiv.stopAnimating()
                                 }
+                            }else {
+                                print("catch")
+                                DispatchQueue.main.async {
+                                    self.episodeAiv.stopAnimating()
+                                    self.warningText.text = "Geçersiz bir arama girdiniz..."
+                                    self.warningText.isHidden = false
+                                }
+                            
                             }
                         }
                     }
@@ -146,6 +168,7 @@ extension EpisodesVC: UITableViewDelegate, UITableViewDataSource,UISearchBarDele
                 }
                 
                 sleep(2)
+                
                 if let episodeDat {
                     self.episodes += episodeDat.results
                     

@@ -8,15 +8,8 @@ import Foundation
 
 // MARK: - Episodes
 struct Episodes: Codable {
-    let info: EpInfo
     let results: [ResultEpisode]
 }
-
-// MARK: - Info
-struct EpInfo: Codable {
-    let count, pages: Int
-}
-
 // MARK: - Result
 struct ResultEpisode: Codable {
     let id: Int

@@ -117,14 +117,23 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="color" systemColor="opaqueSeparatorColor"/>
                             </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dAq-s6-Z7y">
+                                <rect key="frame" x="16" y="210" width="343" height="0.0"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="QvM-oT-wQ2"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="a1F-OL-tQg" firstAttribute="trailing" secondItem="QvM-oT-wQ2" secondAttribute="trailing" id="5Nx-VN-R4c"/>
                             <constraint firstItem="a1F-OL-tQg" firstAttribute="top" secondItem="QvM-oT-wQ2" secondAttribute="top" id="6aB-95-Dup"/>
+                            <constraint firstItem="dAq-s6-Z7y" firstAttribute="top" secondItem="QvM-oT-wQ2" secondAttribute="top" constant="163" id="BWK-hp-1Bj"/>
+                            <constraint firstItem="QvM-oT-wQ2" firstAttribute="trailing" secondItem="dAq-s6-Z7y" secondAttribute="trailing" constant="16" id="Ktl-Ca-cGB"/>
                             <constraint firstAttribute="bottom" secondItem="a1F-OL-tQg" secondAttribute="bottom" id="Xwl-aI-vkF"/>
                             <constraint firstItem="a1F-OL-tQg" firstAttribute="leading" secondItem="QvM-oT-wQ2" secondAttribute="leading" id="chj-xJ-qEB"/>
+                            <constraint firstItem="dAq-s6-Z7y" firstAttribute="leading" secondItem="QvM-oT-wQ2" secondAttribute="leading" constant="16" id="doi-Zy-VzL"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Episodes" image="tv" catalog="system" id="fYZ-Bn-ef4"/>
@@ -132,6 +141,7 @@
                         <outlet property="episodeAiv" destination="gj7-Td-eYf" id="uWj-P9-QTj"/>
                         <outlet property="episodeTableView" destination="a1F-OL-tQg" id="MwY-fq-2A9"/>
                         <outlet property="searchBarEpisode" destination="uR7-NL-Gq4" id="Kd0-4Q-ZqD"/>
+                        <outlet property="warningText" destination="dAq-s6-Z7y" id="7ak-mA-dYC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lgH-ux-die" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -57,8 +57,6 @@ extension CharacterVC: UITableViewDelegate,UITableViewDataSource,UISearchBarDele
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 
-      
-        
         if searchText.isEmpty {
             
             self.isPagination = false

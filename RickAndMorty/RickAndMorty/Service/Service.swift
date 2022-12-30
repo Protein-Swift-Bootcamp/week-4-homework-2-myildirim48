@@ -69,7 +69,6 @@ class Service {
                 completion(objects,nil)
             }catch{
                 completion(nil,err)
-                print("Error while fetching data at Service Catch")
             }
       }.resume()
     }
