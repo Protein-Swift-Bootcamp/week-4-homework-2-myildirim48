@@ -1,1 +1,3 @@
-# week-4-homework-2
+# Patika & Simpra iOS Bootcamp - Week 4 Task 2
+
+##Rick and Morty App
