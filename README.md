@@ -1,3 +1,1 @@
-# Patika & Simpra iOS Bootcamp Week 4 Task 2
-
-
+# week-4-homework-2
