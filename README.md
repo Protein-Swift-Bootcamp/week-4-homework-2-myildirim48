@@ -8,10 +8,17 @@
 
 ### Tools
     - Swift
-    - UIKit
+        - UIKit
+            - Tableview
+            - Tabbar
+            - High order functions
+        - Helpers
+            - Extension for Strings to catch is it number or not
+            - UIImage extension for loading images from url
 
 ### Design Pattern
 - MVC
+
 
 ### Network
 - API : [Rick and Morty API](https://rickandmortyapi.com/)
