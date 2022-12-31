@@ -9,6 +9,7 @@ import UIKit
 
 class CharacterVC: UIViewController {
 
+    @IBOutlet weak var warningLabelChar: UILabel!
     @IBOutlet weak var charAiv: UIActivityIndicatorView!
     @IBOutlet weak var searchBarChar: UISearchBar!
     @IBOutlet weak var charTableView: UITableView!
@@ -58,13 +59,10 @@ extension CharacterVC: UITableViewDelegate,UITableViewDataSource,UISearchBarDele
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 
         if searchText.isEmpty {
-            
+            warningLabelChar.text = ""
             self.isPagination = false
             fetchCharData()
-            
-
         }else{
-            
             characters = []
             charTableView.reloadData()
             charAiv.startAnimating()
@@ -79,12 +77,17 @@ extension CharacterVC: UITableViewDelegate,UITableViewDataSource,UISearchBarDele
                         
                         if let charData {
                             self.characters = []
-                            
                             self.isPagination = true
                             self.characters = charData.results
                             
                             DispatchQueue.main.async {
                                 self.charTableView.reloadData()
+                                self.charAiv.stopAnimating()
+                            }
+                        }else {
+                            DispatchQueue.main.async {
+                                self.warningLabelChar.isHidden = false
+                                self.warningLabelChar.text = "Karakter bulunamadı..."
                                 self.charAiv.stopAnimating()
                             }
                         }

@@ -33,13 +33,24 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="color" systemColor="opaqueSeparatorColor"/>
                             </activityIndicatorView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OEY-cX-O2u">
+                                <rect key="frame" x="16" y="378" width="343" height="0.0"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ISY-O7-z66"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="OEY-cX-O2u" firstAttribute="leading" secondItem="ISY-O7-z66" secondAttribute="leading" constant="16" id="0y9-nY-t1g"/>
                             <constraint firstItem="UJD-Bv-gR9" firstAttribute="top" secondItem="ISY-O7-z66" secondAttribute="top" id="1nK-dW-pjG"/>
+                            <constraint firstItem="OEY-cX-O2u" firstAttribute="top" secondItem="ISY-O7-z66" secondAttribute="top" constant="331" id="FbD-u3-jzo"/>
+                            <constraint firstItem="OEY-cX-O2u" firstAttribute="top" secondItem="ISY-O7-z66" secondAttribute="top" constant="331" id="HKB-Tb-yWy"/>
                             <constraint firstItem="UJD-Bv-gR9" firstAttribute="leading" secondItem="ISY-O7-z66" secondAttribute="leading" id="MRz-tN-MzB"/>
+                            <constraint firstItem="ISY-O7-z66" firstAttribute="trailing" secondItem="OEY-cX-O2u" secondAttribute="trailing" constant="16" id="VBb-Da-xCI"/>
                             <constraint firstItem="ISY-O7-z66" firstAttribute="trailing" secondItem="UJD-Bv-gR9" secondAttribute="trailing" id="WSS-cB-XmM"/>
+                            <constraint firstItem="OEY-cX-O2u" firstAttribute="leading" secondItem="ISY-O7-z66" secondAttribute="leading" constant="16" id="atL-hT-c7i"/>
                             <constraint firstItem="ISY-O7-z66" firstAttribute="bottom" secondItem="UJD-Bv-gR9" secondAttribute="bottom" id="eO4-YK-HaT"/>
                             <constraint firstItem="UJD-Bv-gR9" firstAttribute="bottom" secondItem="ISY-O7-z66" secondAttribute="bottom" id="oSa-FZ-t8a"/>
                         </constraints>
@@ -49,6 +60,7 @@
                         <outlet property="charAiv" destination="DO5-ly-jVe" id="L9A-d9-lhb"/>
                         <outlet property="charTableView" destination="UJD-Bv-gR9" id="XLQ-H1-reP"/>
                         <outlet property="searchBarChar" destination="Cmy-iz-sj0" id="P3Q-C1-fJk"/>
+                        <outlet property="warningLabelChar" destination="OEY-cX-O2u" id="7hF-jm-C3g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i9X-7Z-6m4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

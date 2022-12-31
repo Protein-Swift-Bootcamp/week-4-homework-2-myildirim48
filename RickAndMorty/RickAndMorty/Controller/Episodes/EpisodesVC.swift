@@ -150,7 +150,7 @@ extension EpisodesVC: UITableViewDelegate, UITableViewDataSource,UISearchBarDele
             cell.episodeCellStackView.isHidden = true
             
             cell.activityIndicator.startAnimating()
-            print("Fetching more data")
+            print("Fetching more data for episodes")
             
             
             isPagination = true

@@ -63,14 +63,48 @@ extension PlanetsVC: UITableViewDelegate,UITableViewDataSource {
                 return " - \(planet.dimension)"
             }
         }
-        
-        
-        
         cell.episodeName.text = planet.name
         cell.episodeAirDate.text = planet.created
         cell.episodeSe.text = "\(planet.type)\(dimonsion)"
+        
+        if indexPath.item == planets.count - 1 && !isPagination && page < 8{
+            cell.episodeCellStackView.isHidden = true
+            cell.activityIndicator.startAnimating()
+            
+            print("fetching more data for planets")
+            
+            isPagination = true
+            
+            page += 1
+            
+            Service.shared.fetchPlanet(page: page) { planetData, err in
+                if let err {
+                    print("Error while fetching more data at planet's pagination",err)
+                }
+                
+                if planetData?.results.count == 0 {
+                    self.isPagination = true
+                }
+                
+                sleep(2)
+                
+                if let planetData {
+                    self.planets += planetData.results
+                    
+                    DispatchQueue.main.async {
+                        cell.episodeCellStackView.isHidden = false
+                        cell.activityIndicator.stopAnimating()
+                        self.tableviewPlanet.reloadData()
+                    }
+                }
+                self.isPagination = false
+            }
+        }
+        
         return cell
     }
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return view.frame.height / 7
+    }
     
 }
