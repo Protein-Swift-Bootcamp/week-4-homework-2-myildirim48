@@ -42,8 +42,13 @@ class CharacterVC: UIViewController {
                 self.characters = []
                 self.characters = charData.results
             }
+            
+            
         }
-        self.charTableView.reloadData()
+        DispatchQueue.main.async {
+            self.charTableView.reloadData()
+        }
+        
         charAiv.stopAnimating()
     }
     
@@ -59,6 +64,7 @@ extension CharacterVC: UITableViewDelegate,UITableViewDataSource,UISearchBarDele
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 
         if searchText.isEmpty {
+            
             warningLabelChar.text = ""
             self.isPagination = false
             fetchCharData()

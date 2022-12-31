@@ -33,7 +33,6 @@ class Service {
     }
     
     
-    
     func searchEpisodes(searchTerm:String,completion:@escaping(Episodes?,Error?) -> ()){
         
         let urlString = "https://rickandmortyapi.com/api/episode/?name=\(searchTerm)"
@@ -47,11 +46,16 @@ class Service {
         fetchGeneric(urlString: urlString, completion: completion)
     }
     
-//    func searchLocation(searchTerm:String,completion:@escaping(Planets?,Error?) -> ()){
-//        let urlString = "https://rickandmortyapi.com/api/location/?name=\(searchTerm)"
-//        
-//        fetchGeneric(urlString: urlString, completion: completion)
-//    }
+    func searchPlanetsByType(searchTerm:String,completion:@escaping(Planets?,Error?) -> ()){
+        let urlString = "https://rickandmortyapi.com/api/location/?type=\(searchTerm)"
+        fetchGeneric(urlString: urlString, completion: completion)
+    }
+    
+    func searchPlanetsByName(searchTerm:String,completion:@escaping(Planets?,Error?) -> ()){
+        let urlString = "https://rickandmortyapi.com/api/location/?name=\(searchTerm)"
+        fetchGeneric(urlString: urlString, completion: completion)
+    }
+
     
 
     //Declare json by generic

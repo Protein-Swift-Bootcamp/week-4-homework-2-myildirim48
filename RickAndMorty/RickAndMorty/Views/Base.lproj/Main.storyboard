@@ -78,31 +78,50 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="nWL-BG-dHp">
                                 <rect key="frame" x="0.0" y="47" width="375" height="682"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search planets..." id="oJL-gj-gJX">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="vbr-Kg-gan" id="t6n-08-Rvo"/>
+                                    </connections>
+                                </searchBar>
                             </tableView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" id="7Wa-oE-Oyd">
                                 <rect key="frame" x="0.0" y="384" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="color" systemColor="opaqueSeparatorColor"/>
                             </activityIndicatorView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dbx-T0-GCQ">
+                                <rect key="frame" x="16" y="378" width="343" height="0.0"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hC5-1z-WSE"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="hC5-1z-WSE" firstAttribute="trailing" secondItem="dbx-T0-GCQ" secondAttribute="trailing" constant="16" id="4mE-1H-MWY"/>
                             <constraint firstItem="nWL-BG-dHp" firstAttribute="leading" secondItem="hC5-1z-WSE" secondAttribute="leading" id="66B-Xe-nig"/>
+                            <constraint firstItem="dbx-T0-GCQ" firstAttribute="leading" secondItem="hC5-1z-WSE" secondAttribute="leading" constant="16" id="SHt-ck-2dP"/>
                             <constraint firstItem="nWL-BG-dHp" firstAttribute="top" secondItem="hC5-1z-WSE" secondAttribute="top" id="YbE-gB-5M5"/>
                             <constraint firstItem="hC5-1z-WSE" firstAttribute="trailing" secondItem="nWL-BG-dHp" secondAttribute="trailing" id="bXH-ug-8db"/>
                             <constraint firstItem="hC5-1z-WSE" firstAttribute="bottom" secondItem="nWL-BG-dHp" secondAttribute="bottom" id="dip-o0-z9I"/>
+                            <constraint firstItem="dbx-T0-GCQ" firstAttribute="top" secondItem="hC5-1z-WSE" secondAttribute="top" constant="331" id="nPT-hu-Adt"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Planets" image="rectangle.portrait.and.arrow.forward" catalog="system" id="f8N-dY-O2n"/>
                     <connections>
                         <outlet property="planetAiv" destination="7Wa-oE-Oyd" id="vVr-wE-17M"/>
+                        <outlet property="planetSearchBar" destination="oJL-gj-gJX" id="czy-sR-t8f"/>
+                        <outlet property="planetWarningLabel" destination="dbx-T0-GCQ" id="oZl-A3-bKs"/>
                         <outlet property="tableviewPlanet" destination="nWL-BG-dHp" id="JAP-u5-sa2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3df-ap-zwv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2631" y="1012"/>
+            <point key="canvasLocation" x="-2631.1999999999998" y="1011.576354679803"/>
         </scene>
         <!--Episodes-->
         <scene sceneID="xGZ-vR-ec7">

@@ -8,7 +8,9 @@
 import UIKit
 
 class PlanetsVC: UIViewController {
-
+    
+    @IBOutlet weak var planetSearchBar: UISearchBar!
+    @IBOutlet weak var planetWarningLabel: UILabel!
     @IBOutlet weak var planetAiv: UIActivityIndicatorView!
     @IBOutlet weak var tableviewPlanet: UITableView!
     
@@ -16,7 +18,7 @@ class PlanetsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         tableviewPlanet.register(UINib.init(nibName: "EpisodeCell", bundle: nil), forCellReuseIdentifier: "episodeCell")
         
         tableviewPlanet.delegate = self
@@ -36,7 +38,10 @@ class PlanetsVC: UIViewController {
                 self.planets = planetData.results
             }
         }
-        self.tableviewPlanet.reloadData()
+        DispatchQueue.main.async {
+            self.tableviewPlanet.reloadData()
+            self.planetAiv.stopAnimating()
+        }
     }
     
     fileprivate var isPagination = false
@@ -47,7 +52,69 @@ class PlanetsVC: UIViewController {
     
 }
 
-extension PlanetsVC: UITableViewDelegate,UITableViewDataSource {
+extension PlanetsVC: UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        if searchText.isEmpty {
+            self.isPagination = false
+            planetWarningLabel.text = ""
+            fetchPlanetData()
+        }else {
+            planets = []
+            tableviewPlanet.reloadData()
+            planetWarningLabel.text = ""
+            planetAiv.startAnimating()
+            
+            timer?.invalidate()
+            
+            
+            timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: false, block:  { _ in
+                
+                Service.shared.searchPlanetsByName(searchTerm: searchText) { planetDatas, errData in
+                    if let errData {
+                        print("Error while fetching data at planets", errData)
+                        return
+                    }
+                    if let planetDatas {
+                        self.planets = []
+                        self.planets = planetDatas.results
+                        self.isPagination = true
+                        
+                        DispatchQueue.main.async {
+                            self.tableviewPlanet.reloadData()
+                            self.planetAiv.stopAnimating()
+                        }
+                    }
+                    else {
+                        Service.shared.searchPlanetsByType(searchTerm: searchText) { planetsName, errName in
+                            if let errName {
+                                print("Error while fetching data at PlanetBynane",errName)
+                                return
+                            }else if let planetsName {
+                                self.planets = []
+                                self.planets = planetsName.results
+                                
+                                DispatchQueue.main.async {
+                                    self.tableviewPlanet.reloadData()
+                                    self.planetAiv.stopAnimating()
+                                }
+                            }else {
+                                DispatchQueue.main.async {
+                                    self.planetAiv.stopAnimating()
+                                    self.planetWarningLabel.text = "Herhangi bir sonuç bulunamadı.. \n \n Şunları deneyin: 'Earth, 137'  "
+                                    self.planetWarningLabel.isHidden = false
+                                }
+                              
+                            }
+                        }
+                    }
+                    
+                }
+            })
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return planets.count
     }

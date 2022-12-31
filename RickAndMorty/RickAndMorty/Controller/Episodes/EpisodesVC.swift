@@ -45,6 +45,7 @@ class EpisodesVC: UIViewController{
         }
         DispatchQueue.main.async {
             self.episodeTableView.reloadData()
+            
         }
     }
     
@@ -77,6 +78,7 @@ extension EpisodesVC: UITableViewDelegate, UITableViewDataSource,UISearchBarDele
                                 Service.shared.searchEpisodesNum(searchTerm: searchText) { episoData, err in
                             if let err {
                                 print("Error while searching episodes",err)
+                                return
                             }
                             
                             if let episoData {
@@ -85,7 +87,7 @@ extension EpisodesVC: UITableViewDelegate, UITableViewDataSource,UISearchBarDele
                                 self.isPagination = true
                                 self.episodes = episoData.results
                                 
-                                DispatchQueue.main.async { [self] in
+                                DispatchQueue.main.async {
                                     self.episodeTableView.reloadData()
                                     self.episodeAiv.stopAnimating()
                                 }
