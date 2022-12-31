@@ -19,7 +19,6 @@
  ### Design Pattern
 - MVC
 
-
- ### Network
+ #### Network
 - API : [Rick and Morty API](https://rickandmortyapi.com/)
 
