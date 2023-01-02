@@ -55,7 +55,12 @@ class Service {
         let urlString = "https://rickandmortyapi.com/api/location/?name=\(searchTerm)"
         fetchGeneric(urlString: urlString, completion: completion)
     }
-
+//MARK: -Details
+    
+    func getCharDetails(id:Int,completion: @escaping(CharResult?,Error?) -> ()){
+        let urlString = "https://rickandmortyapi.com/api/character/\(id)"
+        fetchGeneric(urlString: urlString, completion: completion)
+    }
     
 
     //Declare json by generic

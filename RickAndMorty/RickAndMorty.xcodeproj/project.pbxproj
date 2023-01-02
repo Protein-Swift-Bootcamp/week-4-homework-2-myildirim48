@@ -20,6 +20,8 @@
 		745DCEB0295B7C3A00C020E4 /* EpisodesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745DCEAF295B7C3A00C020E4 /* EpisodesVC.swift */; };
 		745DCEB5295B7EFF00C020E4 /* EpisodeCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745DCEB3295B7EFF00C020E4 /* EpisodeCellController.swift */; };
 		745DCEB6295B7EFF00C020E4 /* EpisodeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 745DCEB4295B7EFF00C020E4 /* EpisodeCell.xib */; };
+		746A54F92962D844002133CF /* CharactersDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746A54F82962D844002133CF /* CharactersDetail.swift */; };
+		746A54FB2962EA31002133CF /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746A54FA2962EA31002133CF /* UIViewExtensions.swift */; };
 		74B54C2C295CED7000928B56 /* Planets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B54C2B295CED7000928B56 /* Planets.swift */; };
 		74D5112E295E109C0033CA9A /* EndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D5112D295E109C0033CA9A /* EndPoints.swift */; };
 		74D51130295E1B190033CA9A /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D5112F295E1B190033CA9A /* StringExtensions.swift */; };
@@ -44,6 +46,8 @@
 		745DCEAF295B7C3A00C020E4 /* EpisodesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesVC.swift; sourceTree = "<group>"; };
 		745DCEB3295B7EFF00C020E4 /* EpisodeCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeCellController.swift; sourceTree = "<group>"; };
 		745DCEB4295B7EFF00C020E4 /* EpisodeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EpisodeCell.xib; sourceTree = "<group>"; };
+		746A54F82962D844002133CF /* CharactersDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersDetail.swift; sourceTree = "<group>"; };
+		746A54FA2962EA31002133CF /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		74B54C2B295CED7000928B56 /* Planets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planets.swift; sourceTree = "<group>"; };
 		74D5112D295E109C0033CA9A /* EndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoints.swift; sourceTree = "<group>"; };
 		74D5112F295E1B190033CA9A /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
@@ -99,7 +103,6 @@
 				745DCE94295B6D2F00C020E4 /* AppDelegate.swift */,
 				745DCE96295B6D2F00C020E4 /* SceneDelegate.swift */,
 				745DCE9D295B6D3000C020E4 /* Assets.xcassets */,
-				745DCE9F295B6D3000C020E4 /* LaunchScreen.storyboard */,
 				745DCEA2295B6D3000C020E4 /* Info.plist */,
 			);
 			path = RickAndMorty;
@@ -118,6 +121,7 @@
 		745DCEA9295B72EC00C020E4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				745DCE9F295B6D3000C020E4 /* LaunchScreen.storyboard */,
 				745DCE9A295B6D2F00C020E4 /* Main.storyboard */,
 				745DCEB4295B7EFF00C020E4 /* EpisodeCell.xib */,
 				74FF0571295C63CC0011378E /* CharacterCell.xib */,
@@ -157,6 +161,7 @@
 			children = (
 				74FF0564295C3B170011378E /* UIImageExtension.swift */,
 				74D5112F295E1B190033CA9A /* StringExtensions.swift */,
+				746A54FA2962EA31002133CF /* UIViewExtensions.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -166,6 +171,7 @@
 			children = (
 				745DCE98295B6D2F00C020E4 /* CharacterVC.swift */,
 				74FF0573295C6F630011378E /* CharactersCellController.swift */,
+				746A54F82962D844002133CF /* CharactersDetail.swift */,
 			);
 			path = Characters;
 			sourceTree = "<group>";
@@ -250,8 +256,10 @@
 				74D5112E295E109C0033CA9A /* EndPoints.swift in Sources */,
 				74FF0565295C3B170011378E /* UIImageExtension.swift in Sources */,
 				740160D0295C32AD00F9D590 /* Episodes.swift in Sources */,
+				746A54F92962D844002133CF /* CharactersDetail.swift in Sources */,
 				745DCE95295B6D2F00C020E4 /* AppDelegate.swift in Sources */,
 				745DCEAE295B7C2800C020E4 /* PlanetsVC.swift in Sources */,
+				746A54FB2962EA31002133CF /* UIViewExtensions.swift in Sources */,
 				745DCE97295B6D2F00C020E4 /* SceneDelegate.swift in Sources */,
 				74D51130295E1B190033CA9A /* StringExtensions.swift in Sources */,
 				745DCEB5295B7EFF00C020E4 /* EpisodeCellController.swift in Sources */,
@@ -411,6 +419,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -439,6 +448,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

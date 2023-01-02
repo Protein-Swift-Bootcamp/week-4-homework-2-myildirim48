@@ -19,7 +19,7 @@ class CharacterVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        charAiv.startAnimating()
+//        charAiv.startAnimating()
         
         charTableView.register(UINib.init(nibName: "CharacterCell", bundle: nil), forCellReuseIdentifier: "charCellid")
         
@@ -107,7 +107,8 @@ extension CharacterVC: UITableViewDelegate,UITableViewDataSource,UISearchBarDele
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = charTableView.dequeueReusableCell(withIdentifier: "charCellid", for: indexPath) as! CharactersCellController
         let char = characters[indexPath.item]
-        cell.charImageView.imageFrom(url: URL(string: char.image)!)
+        
+        cell.charImageView.imageFrom(url: URL(string: char.image) ?? URL(fileReferenceLiteralResourceName: ""))
         
         cell.charNamelabel.text = char.name
         
@@ -163,6 +164,7 @@ extension CharacterVC: UITableViewDelegate,UITableViewDataSource,UISearchBarDele
                     }
                     
                     sleep(2)
+                    
                     if let charData {
                         self.characters += charData.results
                         
@@ -179,6 +181,19 @@ extension CharacterVC: UITableViewDelegate,UITableViewDataSource,UISearchBarDele
         }
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath)
+    
+        let mainStoryBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        guard let charDetailVC = mainStoryBoard.instantiateViewController(withIdentifier: "charDetail") as? CharactersDetail else {
+            return
+        }
+        charDetailVC.charId = characters[indexPath.item].id
+        
+        navigationController?.pushViewController(charDetailVC, animated: true)
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
