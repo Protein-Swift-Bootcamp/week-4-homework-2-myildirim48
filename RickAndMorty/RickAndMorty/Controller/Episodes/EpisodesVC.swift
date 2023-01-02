@@ -188,7 +188,7 @@ extension EpisodesVC: UITableViewDelegate, UITableViewDataSource,UISearchBarDele
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return view.frame.height/7
+        return view.frame.height/8.5
     }
     
 }

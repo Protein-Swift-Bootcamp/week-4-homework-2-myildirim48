@@ -17,6 +17,8 @@ class CharactersDetail: UIViewController {
     @IBOutlet weak var charImageView: UIImageView!
     
     var charId : Int = 0
+    
+    // I couldn't find a solution for this force unwrapping
     var charDetails: CharResult! {
         didSet {
             self.charImageView.imageFrom(url: URL(string: charDetails.image)!)

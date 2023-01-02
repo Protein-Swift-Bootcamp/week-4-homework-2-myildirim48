@@ -9,57 +9,48 @@ import Foundation
 class Service {
     static let shared = Service()
 //MARK: - Data fetching funcs
+    
     func fetchEpisodes(page:Int,completion: @escaping(Episodes?,Error?) -> ()){
-        let urlString = "https://rickandmortyapi.com/api/episode?page=\(page)"
-        fetchGeneric(urlString: urlString, completion: completion)
+        fetchGeneric(urlString: endPoints.fetchEpisode(page).stringUrl, completion: completion)
     }
     
     func fetchCharacter(page:Int,completion: @escaping(Characters?,Error?) -> ()) {
-        let urlString = "https://rickandmortyapi.com/api/character/?page=\(page)"
-        fetchGeneric(urlString: urlString, completion: completion)
+
+        fetchGeneric(urlString: endPoints.fetchChars(page).stringUrl, completion: completion)
     }
     
     func fetchPlanet(page:Int,completion: @escaping(Planets?,Error?) -> ()) {
-        let urlString = "https://rickandmortyapi.com/api/location/?page=\(page)"
-        fetchGeneric(urlString: urlString, completion: completion)
+        fetchGeneric(urlString: endPoints.fetchPlanets(page).stringUrl, completion: completion)
     }
     
     
     //MARK: - Search funcs
     func searchCharacters(searchTerm:String,completion:@escaping(Characters?,Error?) -> ()) {
-        let urlString = "https://rickandmortyapi.com/api/character/?name=\(searchTerm)"
         
-        fetchGeneric(urlString: urlString, completion: completion)
+        fetchGeneric(urlString: endPoints.charSearchByName(searchTerm).stringUrl, completion: completion)
     }
     
     
     func searchEpisodes(searchTerm:String,completion:@escaping(Episodes?,Error?) -> ()){
         
-        let urlString = "https://rickandmortyapi.com/api/episode/?name=\(searchTerm)"
-        
-        fetchGeneric(urlString: urlString, completion: completion)
+        fetchGeneric(urlString: endPoints.episodeSearchByName(searchTerm).stringUrl, completion: completion)
     }
     func searchEpisodesNum(searchTerm:String,completion:@escaping(Episodes?,Error?) -> ()){
-        
-        let urlString = "https://rickandmortyapi.com/api/episode/?episode=\(searchTerm)"
-        
-        fetchGeneric(urlString: urlString, completion: completion)
+        fetchGeneric(urlString: endPoints.searchEpisodeByNum(searchTerm).stringUrl, completion: completion)
     }
     
     func searchPlanetsByType(searchTerm:String,completion:@escaping(Planets?,Error?) -> ()){
-        let urlString = "https://rickandmortyapi.com/api/location/?type=\(searchTerm)"
-        fetchGeneric(urlString: urlString, completion: completion)
+        
+        fetchGeneric(urlString: endPoints.searchPlanetByType(searchTerm).urlBase, completion: completion)
     }
     
     func searchPlanetsByName(searchTerm:String,completion:@escaping(Planets?,Error?) -> ()){
-        let urlString = "https://rickandmortyapi.com/api/location/?name=\(searchTerm)"
-        fetchGeneric(urlString: urlString, completion: completion)
+        fetchGeneric(urlString: endPoints.planetSearchByname(searchTerm).stringUrl, completion: completion)
     }
 //MARK: -Details
     
     func getCharDetails(id:Int,completion: @escaping(CharResult?,Error?) -> ()){
-        let urlString = "https://rickandmortyapi.com/api/character/\(id)"
-        fetchGeneric(urlString: urlString, completion: completion)
+        fetchGeneric(urlString: endPoints.getCharDetail(id).stringUrl, completion: completion)
     }
     
 

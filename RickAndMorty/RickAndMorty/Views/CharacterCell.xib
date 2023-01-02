@@ -10,11 +10,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="charCellid" rowHeight="97" id="JZf-g2-6b7" customClass="CharactersCellController" customModule="RickAndMorty" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="345" height="97"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="charCellid" rowHeight="94" id="JZf-g2-6b7" customClass="CharactersCellController" customModule="RickAndMorty" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="345" height="94"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JZf-g2-6b7" id="alp-59-rXw">
-                <rect key="frame" x="0.0" y="0.0" width="345" height="97"/>
+                <rect key="frame" x="0.0" y="0.0" width="345" height="94"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="UzA-bJ-RCG">
@@ -86,7 +86,7 @@
                 <outlet property="speciesLabel" destination="h08-yG-DJL" id="JPz-pz-I8y"/>
                 <outlet property="statusLabel" destination="Kvk-W5-zwY" id="HpW-IF-OLR"/>
             </connections>
-            <point key="canvasLocation" x="145.80152671755724" y="23.591549295774648"/>
+            <point key="canvasLocation" x="145.80152671755724" y="21.83098591549296"/>
         </tableViewCell>
     </objects>
     <resources>
