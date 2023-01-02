@@ -197,7 +197,7 @@ extension CharacterVC: UITableViewDelegate,UITableViewDataSource,UISearchBarDele
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return view.frame.height/8.5
+        return view.frame.height/8
     }
     
 }
