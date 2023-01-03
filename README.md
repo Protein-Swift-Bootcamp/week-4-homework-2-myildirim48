@@ -23,4 +23,4 @@
 - API : [Rick and Morty API](https://rickandmortyapi.com/)
 
  #### Gif
- ![] ()
+ ![] (https://github.com/Protein-Swift-Bootcamp/week-4-homework-2-myildirim48/blob/main/RickAndMorty.gif?raw=true)
