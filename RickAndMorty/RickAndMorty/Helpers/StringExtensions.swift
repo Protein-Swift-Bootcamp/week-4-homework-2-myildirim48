@@ -14,3 +14,20 @@ extension String {
             options: .regularExpression) != nil
     }
 }
+
+extension String {
+
+     func containsLatinCharacters() -> Bool {
+
+         var charSet = NSCharacterSet(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890")
+         charSet = charSet.inverted as NSCharacterSet
+
+         let range = (self as NSString).rangeOfCharacter(from: charSet as CharacterSet)
+
+        if range.location != NSNotFound {
+            return false
+        }
+
+        return true
+    }
+}

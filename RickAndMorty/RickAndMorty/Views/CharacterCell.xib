@@ -81,8 +81,9 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="aivChar" destination="UzA-bJ-RCG" id="joZ-1h-lIx"/>
-                <outlet property="charImageView" destination="Ave-jk-A1P" id="VqP-D8-IuX"/>
+                <outlet property="charImageView" destination="Ave-jk-A1P" id="1pF-kP-lko"/>
                 <outlet property="charNamelabel" destination="nqE-3A-XgL" id="Jj2-3F-mAF"/>
+                <outlet property="charStackView" destination="yXs-Vm-Smj" id="bxb-It-c6D"/>
                 <outlet property="genderLabel" destination="q8B-af-3an" id="MIK-fs-ebd"/>
                 <outlet property="originLabel" destination="8HU-yG-xVg" id="TPb-sS-5q5"/>
                 <outlet property="speciesLabel" destination="h08-yG-DJL" id="JPz-pz-I8y"/>

@@ -19,7 +19,7 @@ class CharacterVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        charAiv.startAnimating()
+        charAiv.startAnimating()
         
         charTableView.register(UINib.init(nibName: "CharacterCell", bundle: nil), forCellReuseIdentifier: "charCellid")
         
@@ -68,7 +68,7 @@ extension CharacterVC: UITableViewDelegate,UITableViewDataSource,UISearchBarDele
             warningLabelChar.text = ""
             self.isPagination = false
             fetchCharData()
-        }else{
+        }else if searchText.containsLatinCharacters(){
             characters = []
             charTableView.reloadData()
             charAiv.startAnimating()
@@ -86,9 +86,11 @@ extension CharacterVC: UITableViewDelegate,UITableViewDataSource,UISearchBarDele
                             self.isPagination = true
                             self.characters = charData.results
                             
+                            
                             DispatchQueue.main.async {
                                 self.charTableView.reloadData()
                                 self.charAiv.stopAnimating()
+                                self.warningLabelChar.text = ""
                             }
                         }else {
                             DispatchQueue.main.async {
@@ -98,6 +100,20 @@ extension CharacterVC: UITableViewDelegate,UITableViewDataSource,UISearchBarDele
                             }
                         }
                     }
+            })
+        }else {
+            
+            characters = []
+            charTableView.reloadData()
+            charAiv.startAnimating()
+            
+            timer?.invalidate()
+            timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: false, block: { _ in
+
+                
+                self.warningLabelChar.isHidden = false
+                self.warningLabelChar.text = "Sadece İngilizce karakterler ile arama yapabilirsiniz..."
+                self.charAiv.stopAnimating()
             })
         }
     }
@@ -150,6 +166,7 @@ extension CharacterVC: UITableViewDelegate,UITableViewDataSource,UISearchBarDele
             
             print(indexPath.item)
             //Hiding stack view CharacterCell,Starting animation
+            cell.charImageView.isHidden = true
             cell.charStackView.isHidden = true
             cell.aivChar.startAnimating()
      

@@ -27,7 +27,7 @@ enum endPoints {
     
     var stringUrl : String {
     switch self {
-    case .episodeSearchByName(let name):
+        case .episodeSearchByName(let name):
             return urlBase + "episode/?name=\(name)"
         case .charSearchByName(let name):
             return urlBase + "character/?name=\(name)"
@@ -40,11 +40,11 @@ enum endPoints {
         case .fetchPlanets(let page):
             return urlBase + "location?page=\(page)"
         case .searchEpisodeByNum(let num):
-        return urlBase + "episode/?episode=\(num)"
+            return urlBase + "episode/?episode=\(num)"
         case .searchPlanetByType(let type):
-        return urlBase + "location/?type=\(type)"
+            return urlBase + "location/?type=\(type)"
         case .getCharDetail(let charId):
-        return urlBase + "character/\(charId)"
+            return urlBase + "character/\(charId)"
     }
     }
 

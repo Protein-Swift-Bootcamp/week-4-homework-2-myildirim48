@@ -40,12 +40,11 @@ class EpisodesVC: UIViewController{
             if let episodesData {
                 self.episodes = []
                 self.episodes = episodesData.results
-                
+                DispatchQueue.main.async {
+                    self.episodeTableView.reloadData()
+                    
+                }
             }
-        }
-        DispatchQueue.main.async {
-            self.episodeTableView.reloadData()
-            
         }
     }
     
@@ -60,10 +59,11 @@ extension EpisodesVC: UITableViewDelegate, UITableViewDataSource,UISearchBarDele
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.isEmpty {
-            self.isPagination = false
             warningText.text = ""
+            self.isPagination = false
             fetchEpisodeData()
-        }else {
+            self.episodeAiv.stopAnimating()
+        }else{
             
             self.episodes = []
             self.episodeTableView.reloadData()
@@ -86,6 +86,7 @@ extension EpisodesVC: UITableViewDelegate, UITableViewDataSource,UISearchBarDele
                                 
                                 self.isPagination = true
                                 self.episodes = episoData.results
+                                self.warningText.text = ""
                                 
                                 DispatchQueue.main.async {
                                     self.episodeTableView.reloadData()
@@ -100,36 +101,39 @@ extension EpisodesVC: UITableViewDelegate, UITableViewDataSource,UISearchBarDele
                                 self.warningText.isHidden = false
                             }
                         }
-                    }else {
+                    }else if searchText.containsLatinCharacters(){
                         Service.shared.searchEpisodes(searchTerm: searchText) { episoData, err in
                             if let err {
                                 print("Error while searching episodes",err)
-                            }
-                            
-                            if let episoData {
+                            }else if let episoData {
                                 self.episodes = []
                                 
                                 self.isPagination = true
                                 self.episodes = episoData.results
                                 
+                                
                                 DispatchQueue.main.async {
                                     self.episodeTableView.reloadData()
                                     self.episodeAiv.stopAnimating()
+                                    self.warningText.text = ""
                                 }
-                            }else {
-                                print("catch")
+                            }else{
                                 DispatchQueue.main.async {
                                     self.episodeAiv.stopAnimating()
                                     self.warningText.text = "Geçersiz bir arama girdiniz..."
                                     self.warningText.isHidden = false
                                 }
+                                
                             
                             }
                         }
+                    }else {
+                        self.episodeAiv.stopAnimating()
+                        self.warningText.text = "Sadece ingilizce karakterlerle arama yapabilirsiniz."
+                        self.warningText.isHidden = false
                     }
                 })
             }
-        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

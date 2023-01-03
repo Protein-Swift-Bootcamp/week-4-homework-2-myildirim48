@@ -60,6 +60,21 @@ extension PlanetsVC: UITableViewDelegate,UITableViewDataSource,UISearchBarDelega
             self.isPagination = false
             planetWarningLabel.text = ""
             fetchPlanetData()
+        }else if searchText.containsLatinCharacters() == false {
+            
+            planets = []
+            tableviewPlanet.reloadData()
+            planetWarningLabel.text = ""
+            planetAiv.startAnimating()
+            
+            timer?.invalidate()
+            
+            
+            timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: false, block:  { _ in
+                self.planetAiv.stopAnimating()
+                self.planetWarningLabel.text = "Herhangi bir sonuç bulunamadı.. \n \n Şunları deneyin: 'Earth, 137'  "
+                self.planetWarningLabel.isHidden = false
+            })
         }else {
             planets = []
             tableviewPlanet.reloadData()
@@ -81,12 +96,14 @@ extension PlanetsVC: UITableViewDelegate,UITableViewDataSource,UISearchBarDelega
                         self.planets = planetDatas.results
                         self.isPagination = true
                         
+                        
                         DispatchQueue.main.async {
                             self.tableviewPlanet.reloadData()
                             self.planetAiv.stopAnimating()
+                            self.planetWarningLabel.text = ""
                         }
                     }
-                    else {
+                    else{
                         Service.shared.searchPlanetsByType(searchTerm: searchText) { planetsName, errName in
                             if let errName {
                                 print("Error while fetching data at PlanetBynane",errName)
@@ -95,9 +112,11 @@ extension PlanetsVC: UITableViewDelegate,UITableViewDataSource,UISearchBarDelega
                                 self.planets = []
                                 self.planets = planetsName.results
                                 
+                                
                                 DispatchQueue.main.async {
                                     self.tableviewPlanet.reloadData()
                                     self.planetAiv.stopAnimating()
+                                    self.planetWarningLabel.text = ""
                                 }
                             }else {
                                 DispatchQueue.main.async {
