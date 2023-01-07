@@ -19,12 +19,15 @@ class PlanetsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        planetAiv.startAnimating()
+        
         tableviewPlanet.register(UINib.init(nibName: "EpisodeCell", bundle: nil), forCellReuseIdentifier: "episodeCell")
         
         tableviewPlanet.delegate = self
         tableviewPlanet.dataSource = self
         
         fetchPlanetData()
+        tableviewPlanet.reloadData()
     }
     
     fileprivate func fetchPlanetData(){
@@ -36,12 +39,14 @@ class PlanetsVC: UIViewController {
             if let planetData{
                 self.planets = []
                 self.planets = planetData.results
+                
+                DispatchQueue.main.async {
+                    self.tableviewPlanet.reloadData()
+                    self.planetAiv.stopAnimating()
+                }
             }
         }
-        DispatchQueue.main.async {
-            self.tableviewPlanet.reloadData()
-            self.planetAiv.stopAnimating()
-        }
+      
     }
     
     fileprivate var isPagination = false

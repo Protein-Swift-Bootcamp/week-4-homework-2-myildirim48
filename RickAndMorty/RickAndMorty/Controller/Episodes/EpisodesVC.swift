@@ -21,6 +21,8 @@ class EpisodesVC: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        episodeAiv.startAnimating()
+        
         //XİB cell registration
         episodeTableView.register(UINib.init(nibName: "EpisodeCell", bundle: nil), forCellReuseIdentifier: "episodeCell")
         
@@ -29,6 +31,7 @@ class EpisodesVC: UIViewController{
         
         
         fetchEpisodeData()//Fetching data
+        episodeTableView.reloadData()
     }
     
     func fetchEpisodeData(){
@@ -40,9 +43,10 @@ class EpisodesVC: UIViewController{
             if let episodesData {
                 self.episodes = []
                 self.episodes = episodesData.results
+                
                 DispatchQueue.main.async {
                     self.episodeTableView.reloadData()
-                    
+                    self.episodeAiv.stopAnimating()
                 }
             }
         }

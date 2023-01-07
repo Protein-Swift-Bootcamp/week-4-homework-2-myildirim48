@@ -18,20 +18,21 @@ class CharacterVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         charAiv.startAnimating()
-        
+    
         charTableView.register(UINib.init(nibName: "CharacterCell", bundle: nil), forCellReuseIdentifier: "charCellid")
         
         charTableView.delegate = self
         charTableView.dataSource = self
-        
         searchBarChar.delegate = self
+        
         
         fetchCharData()
         
+        charTableView.reloadData()
         
     }
+    
     
     fileprivate func fetchCharData() {
         Service.shared.fetchCharacter(page: 1) { charData, err in
@@ -41,15 +42,18 @@ class CharacterVC: UIViewController {
             if let charData {
                 self.characters = []
                 self.characters = charData.results
+                
+                DispatchQueue.main.async {
+                    self.charTableView.reloadData()
+                    self.charAiv.stopAnimating()
+                }
             }
             
             
         }
-        DispatchQueue.main.async {
-            self.charTableView.reloadData()
-        }
+    
         
-        charAiv.stopAnimating()
+        
     }
     
     fileprivate var isPagination = false
