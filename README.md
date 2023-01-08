@@ -4,13 +4,14 @@
 - This is a Rick and Morty app
     - With this application;
         - can search for characters,episodes,planets
-        - can look details for characters,episodes,planets
+        - can look details for characters
 
  ### Tools
     - Swift
         - UIKit
             - Tableview
             - Tabbar
+            - Navigation bar
             - High order functions
         - Helpers
             - Extension for Strings to catch is it number or not
